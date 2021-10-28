@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Add a Pet!</h1>
+<form action="" method="post" novalidate>
+	{{ form.hidden_tag() }}
+	<p>
+		{{ form.petname.label }}<br>
+		{{ form.petname(size=32) }}
+	</p>
+	<p>
+		{{ form.pettype.label }}<br>
+		{{ form.pettype(size=32) }}
+	</p>
+	<p>
+		{{ form.petprice.label }}<br>
+		{{ form.petprice(size=32) }}
+	</p>
+	<p>
+		{{ form.petpicture.label }}<br>
+		{{ form.petpicture(size=32) }}
+	</p>
+
+	<p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

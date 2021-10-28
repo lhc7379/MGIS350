@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="block1">
+	<h1>All about {{pet.name}}</h1>
+<img src="/static/{{pet.pic}}" />
+<p>
+{{pet.name}} is an adorable {{pet.type}} who wants to come home with you!
+</p>
+Take {{pet.name}} home today for the price of {{pet.price}}!
+
+</div>
+
+{% endblock %}

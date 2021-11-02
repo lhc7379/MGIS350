@@ -1,11 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
 
-class NewPetForm(FlaskForm):
-    petname = StringField('Pet name', validators=[DataRequired()])
-    pettype = StringField('Pet type', validators=[DataRequired()])
-    petpicture = StringField('Pet picture (URL or filename)')
-    petprice = StringField('Pet Price')
+class NewClothingForm(FlaskForm):
+    clothingbrand = StringField('Clothing brand', validators=[DataRequired()])
+    clothingtype = StringField('Clothing type', validators=[DataRequired()])
+    clothingpic = StringField('Clothing picture (URL or filename)')
+    clothingprice = StringField('Clothing Price')
+    clothingsize = StringField('Clothing Size')
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')

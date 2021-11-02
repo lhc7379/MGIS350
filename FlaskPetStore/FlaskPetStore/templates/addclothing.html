@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Add Clothing!</h1>
+<form action="" method="post" novalidate>
+	{{ form.hidden_tag() }}
+	<p>
+		{{ form.clothingbrand.label }}<br>
+		{{ form.clothingbrand(size=32) }}
+	</p>
+	<p>
+		{{ form.clothingtype.label }}<br>
+		{{ form.clothingtype(size=32) }}
+	</p>
+	<p>
+		{{ form.clothingprice.label }}<br>
+		{{ form.clothingprice(size=32) }}
+	</p>
+	<p>
+		{{ form.clothingpic.label }}<br>
+		{{ form.clothingpic(size=32) }}
+	</p>
+	<p>
+		{{ form.clothingsize.label }}<br>
+		{{ form.clothingsize(size=32) }}
+	</p>
+
+	<p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

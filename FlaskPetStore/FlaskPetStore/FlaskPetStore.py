@@ -1,47 +1,48 @@
 
 from flask import Flask, render_template,flash, redirect
-from forms import NewPetForm
+from forms import NewClothingForm
 
-class Pet:
-	def __init__(self,id,name,type,price,pic):
-		self.id = id
-		self.name = name
+class clothing:
+	def __init__(self,brand,type,price,pic,size):
+		self.brand = brand
 		self.type = type
 		self.price = price
 		self.pic = pic
+		self.size = size
+clothinglist = []
+c = clothing("Gucci","Shirt",200.00,"GucciShirt.jpg","Large")
+c2 = clothing("Nike","Shorts",55.00, "NikeShorts.jpg","Medium")
+c3 = clothing("Wrangler","Jeans",20.00, "WranglerJeans.jpg","Small")
+c4 = clothing("North Face","Hoodie",90.00, "NorthfaceHoodie.jpg","Medium")
 
-petlist = []
-p = Pet(0,"Fluffy","cat",12.99,"fluffy.jpg")
-p2 = Pet(1,"Rover","dog", 140.00, "rover.jpg")
-p3 = Pet(2,"Cod","fish",0.50,"cod.jpg")
-
-petlist.append(p)
-petlist.append(p2)
-petlist.append(p3)
+clothinglist.append(c)
+clothinglist.append(c2)
+clothinglist.append(c3)
+clothinglist.append(c4)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 
-@app.route("/addpet",methods=['GET','POST'])
-def addpet():
-	addform = NewPetForm()
+@app.route("/addclothing",methods=['GET','POST'])
+def addclothing():
+	addform = NewClothingForm()
 	if addform.validate_on_submit():
-		flash('Adding pet {}, which is a...{}'.format(
-			addform.petname.data, addform.pettype.data))
-		nextpetid = len(petlist)
-		newpet = Pet(nextpetid,addform.petname.data,addform.pettype.data,addform.petprice.data,addform.petpicture.data)
-		petlist.append(newpet)
+		flash('Adding clothing {}, which is a...{}'.format(
+			addform.clothingname.data, addform.clothingtype.data))
+		nextclothingid = len(clothinglist)
+		newclothing = clothing(nextclothingid,addform.clothingname.data,addform.clothingtype.data,addform.clothingprice.data,addform.clothingpic.data)
+		clothinglist.append(newclothing)
 		return redirect('/')
-	return render_template("addpet.html",title='Add A Pet!',form=addform)
+	return render_template("addclothing.html",title='Add A Piece Of Clothing!',form=addform)
 
 @app.route("/")
-@app.route("/listpets")
+@app.route("/listclothing")
 def list():
-	return render_template("list.html",pets=petlist)
+	return render_template("list.html",clothes=clothinglist)
 
-@app.route("/detail/<int:pickapet>")
-def detail(pickapet):
-	return render_template("detail.html",pet=petlist[pickapet])
+@app.route("/detail/<int:pickclothes>")
+def detail(pickclothes):
+	return render_template("detail.html",clothes=clothinglist[pickclothes])
 
 if __name__ == "__main__":
 	app.run()

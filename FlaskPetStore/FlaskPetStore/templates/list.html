@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="block1">
-	<h1>Hello</h1>
-
-	{% for c in Clothes %}
-	<a href="/detail/{{c.id}}">a {{c.type}} called {{c.name}}</a><br>
+	<h1>Welcome to Ritchie's Clothing Store!</h1>
+	<img src="/static/ritchie.jpg" />
+    <br>
+	<br>
+	{% for c in clothes %}
+	<a href="/detail/{{c.id}}">{{c.brand}} {{c.type}}</a><br>
 	{% endfor %}
 
 

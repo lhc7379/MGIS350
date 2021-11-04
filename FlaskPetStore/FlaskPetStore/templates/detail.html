@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="block1">
-	<h1>All about {{clothing.name}}</h1>
-<img src="/static/{{clothing.pic}}" />
+	
+<img src="/static/{{clothes.pic}}" />
 <p>
-{{clothing.name}} is a high end {{clothing.type}} that will look great in your closet!
+{{clothes.brand}} is a high end brand. This {{clothes.type}} will look great in your closet!
 </p>
-Take {{clothing.name}} home today for the price of {{clothing.price}}!
+{{clothes.brand}} {{clothes.type}}: ${{clothes.price}}
 
 </div>
 
